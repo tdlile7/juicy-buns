@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 import MenuContext from "../../../contexts/Menu/menuContext";
 import MenuSection from "./MenuSection";
-import { TimelineMax } from "gsap/all";
+import { TimelineMax } from "gsap/TweenMax";
 import { menu } from "../../../data/menuData";
 
 const Menu = () => {

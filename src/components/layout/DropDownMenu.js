@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import LoaderContext from "../../contexts/Loader/loaderContext";
 import MenuContext from "../../contexts/Menu/menuContext";
 import { Link } from "react-router-dom";
-import { TimelineMax } from "gsap/all";
+import { TimelineMax } from "gsap/TweenMax";
 
 const DropDownMenu = () => {
   //Contexts
