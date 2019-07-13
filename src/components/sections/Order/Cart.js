@@ -39,7 +39,7 @@ const Cart = () => {
 
   return (
     <div className="cart">
-      <h2 class="cart__title">Cart</h2>
+      <h2 className="cart__title">Cart</h2>
       {cartItems.length > 0 && (
         <h2 className="cart__instructions">
           Select item below to remove from cart
@@ -51,7 +51,7 @@ const Cart = () => {
         })}
       </ul>
 
-      <div class="cart__price">
+      <div className="cart__price">
         <p className="price-display">
           <p className="taxes">Tax (9.8%): {`$${tax.toFixed(2)}`}</p>
           <p className="total-price">

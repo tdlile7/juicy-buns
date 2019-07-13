@@ -47,13 +47,13 @@ const Review = ({ name, rating }) => {
     <Fragment>
       <h2 className="name">{name}</h2>
       <div className="stars">
-        {reviewStars.map(star => {
+        {reviewStars.map((star, index) => {
           if (star === "*") {
-            return <i class={fullStar} />;
+            return <i key={index} className={fullStar} />;
           } else if (star === "/*") {
-            return <i class={halfStar} />;
+            return <i key={index} className={halfStar} />;
           } else {
-            return <i class={emptyStar} />;
+            return <i key={index} className={emptyStar} />;
           }
         })}
       </div>

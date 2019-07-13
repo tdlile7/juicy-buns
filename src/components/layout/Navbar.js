@@ -25,7 +25,7 @@ const Navbar = ({ title, icon }) => {
       </Link>
       <DropDownMenu />
       <button className="navbar__menu" onClick={() => toggleMenu()}>
-        Menu <i class="fas fa-caret-square-down" />
+        Menu <i className="fas fa-caret-square-down" />
       </button>
       <div className="navbar__links">
         <ul>

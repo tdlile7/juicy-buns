@@ -54,7 +54,9 @@ const Reviews = () => {
               {reviews.map(({ isSelected, id }, index) => {
                 return (
                   <button key={id} onClick={() => handleSelectReview(index)}>
-                    <i class={isSelected ? "fas fa-circle" : "far fa-circle"} />
+                    <i
+                      className={isSelected ? "fas fa-circle" : "far fa-circle"}
+                    />
                   </button>
                 );
               })}

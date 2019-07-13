@@ -21,8 +21,8 @@ const Intro = () => {
         />
       </div>
       <div className="specials">
-        {featuredItems.map(({ name, deal }) => {
-          return <Special name={name} deal={deal} />;
+        {featuredItems.map(({ name, deal, id }) => {
+          return <Special key={id} name={name} deal={deal} />;
         })}
       </div>
     </div>

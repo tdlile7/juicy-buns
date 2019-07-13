@@ -20,7 +20,7 @@ const Loader = () => {
 
   return (
     <div className="loading-container">
-      <div class="loader">
+      <div className="loader">
         <i ref={hamburgerRef} className="fas fa-hamburger" />
       </div>
     </div>
