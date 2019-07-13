@@ -1,0 +1,114 @@
+.menu {
+  @include flexCenter();
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(85, 85, 85, 0.85);
+  z-index: 999;
+
+  &__content {
+    position: relative;
+    @include gridCol(1);
+    max-height: 80%;
+    width: 40%;
+    color: white;
+    background: black;
+    border: 2px solid rgb(156, 156, 156);
+    border-radius: 5px;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    opacity: 0;
+    top: -300px;
+    transform: scale(0);
+
+    .menu-section {
+      @include flexCenter(column);
+      flex: 1;
+      position: relative;
+      padding: 1.25rem 0;
+
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3) {
+        top: 10%;
+      }
+
+      &__title {
+        position: relative;
+        width: 60%;
+        font-size: 2rem;
+        text-align: center;
+        padding-bottom: 1rem;
+
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 2px;
+          background: rgb(141, 141, 141);
+        }
+      }
+
+      .menu-items {
+        position: relative;
+        width: 100%;
+
+        .menu-item {
+          width: 100%;
+          padding: 1rem 0;
+          font-size: 1.25rem;
+          text-align: center;
+        }
+      }
+    }
+
+    .menu-closing-button {
+      all: unset;
+      @include flexCenter(column);
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 2rem;
+      border: 2px solid rgb(233, 233, 233);
+      border-bottom-left-radius: 5px;
+      background: rgb(0, 0, 0);
+      color: white;
+      height: 50px;
+      width: 50px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+// Media Queries
+@media only screen and (max-width: 650px) {
+  .menu {
+    &__content {
+      width: 80%;
+
+      .menu-section {
+        &__title {
+          font-size: 2.5rem;
+        }
+
+        .menu-items {
+          .menu-item {
+            font-size: 1.35rem;
+          }
+        }
+      }
+
+      .menu-closing-button {
+        font-size: 1.75rem;
+      }
+    }
+  }
+}

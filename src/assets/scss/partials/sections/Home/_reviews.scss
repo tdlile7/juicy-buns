@@ -1,0 +1,111 @@
+.home {
+  &__reviews {
+    @include flexCenter();
+    height: 110vh;
+    background: url($burgerRestaurant) no-repeat center center/cover;
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%, 0 30%);
+    margin-bottom: -20vh;
+
+    .review {
+      position: absolute;
+      height: 45%;
+      width: 55%;
+      background: rgba(184, 182, 182, 0.9);
+      border: 3px solid white;
+      border-radius: 15px;
+
+      //Transition Group Animations
+      &-fade-enter {
+        opacity: 0;
+      }
+
+      &-fade-enter-active {
+        opacity: 1;
+        transition: opacity 1000ms;
+      }
+
+      &-fade-exit {
+        opacity: 1;
+      }
+
+      &-fade-exit-active {
+        opacity: 0;
+        transition: opacity 1000ms;
+      }
+
+      &__title {
+        position: absolute;
+        @include flexCenter();
+        top: 7.5%;
+        left: 10%;
+
+        .stars {
+          position: relative;
+          left: 10px;
+        }
+      }
+
+      &__content {
+        width: 80%;
+        position: absolute;
+        top: 30%;
+        left: 10%;
+        font-size: 1.25rem;
+      }
+
+      &__selector {
+        @include flexCenter();
+        width: 100%;
+        position: absolute;
+        bottom: 20%;
+
+        button {
+          all: unset;
+          margin: 0 2.5px;
+          i {
+            font-size: 1.25rem;
+            background: transparent;
+          }
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Media Queries
+@media only screen and (max-width: 650px) {
+  .home {
+    &__reviews {
+      clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%, 0 15%);
+
+      .review {
+        height: 50%;
+        width: 85%;
+
+        &__title {
+          font-size: 1.25rem;
+        }
+
+        &__content {
+          top: 25%;
+          font-size: 1.5rem;
+        }
+
+        &__selector {
+          bottom: 10%;
+
+          button {
+            i {
+              font-size: 1.75rem;
+              background: transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+}

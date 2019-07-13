@@ -1,0 +1,38 @@
+.footer {
+  @include flexCenter(column);
+  position: relative;
+  height: 20vh;
+  color: white;
+  font-size: 1.25rem;
+  background: rgba(53, 53, 53, 1);
+  clip-path: polygon(50% 0%, 100% 40%, 100% 100%, 0 100%, 0% 40%);
+
+  .attributions {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 0.85rem;
+    padding: 1rem;
+
+    p {
+      padding: 5px;
+
+      a {
+        text-decoration: none;
+        color: rgb(177, 177, 177);
+        padding: 0 3.5px;
+      }
+    }
+  }
+}
+
+//Media Queries
+@media only screen and (max-width: 650px) {
+  .footer {
+    .attributions {
+      @include flexCenter();
+      width: 100%;
+      font-size: 0.75rem;
+    }
+  }
+}

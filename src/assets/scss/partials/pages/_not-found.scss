@@ -1,0 +1,33 @@
+.not-found {
+  @include flexCenter(column);
+  position: relative;
+  height: 80vh;
+  color: white;
+
+  h2 {
+    font-size: 5rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  a {
+    @include flexCenter();
+    position: relative;
+    text-decoration: none;
+    margin-top: 2rem;
+    font-size: 2rem;
+    padding: 2rem;
+    background: black;
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+
+    &:hover {
+      top: 2.5px;
+    }
+
+    &:active {
+      top: 3.5px;
+    }
+  }
+}

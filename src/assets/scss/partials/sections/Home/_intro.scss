@@ -1,0 +1,139 @@
+// Image imports
+$chickenBurger: "../images/burgers/chicken-burger.jpg";
+$mushroomBurger: "../images/burgers/mushroom-hamburger.jpg";
+$poorManBigMac: "../images/burgers/poor-man-big-mac.jpg";
+$burgerRestaurant: "../images/burger-restaurant.jpg";
+
+.home {
+  &__intro {
+    @include gridCol(2);
+    height: 110vh;
+    margin: 1rem 0;
+
+    .display {
+      flex: 1;
+      @include flexCenter();
+
+      &__image {
+        height: 85%;
+        width: 85%;
+        object-fit: contain;
+      }
+    }
+
+    .specials {
+      flex: 1;
+      position: relative;
+      margin: 30px;
+      display: flex;
+      flex-direction: column;
+      color: white;
+
+      &:before {
+        content: "Featured";
+        position: absolute;
+        @include flexCenter();
+        top: -20px;
+        left: -30px;
+        height: 10%;
+        width: 30%;
+        border: 1px solid white;
+        background: rgba(92, 92, 92, 0.95);
+        color: white;
+        font-size: 2rem;
+        transform: rotate(-10deg);
+        z-index: 3;
+      }
+
+      .special {
+        position: relative;
+        flex: 1;
+        transition: all 0.75s ease;
+
+        &:hover {
+          cursor: pointer;
+          flex: 2;
+        }
+
+        &__details {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          @include flexCenter(column);
+          z-index: 2;
+
+          .headline {
+            font-size: 2.5rem;
+            transition: all 0.75s ease;
+            text-align: center;
+          }
+
+          .description {
+            display: none;
+            text-align: center;
+            font-size: 1.75rem;
+            margin: 2rem 0;
+            padding-top: 2.5rem;
+            width: 80%;
+            border-top: 2px dashed white;
+          }
+
+          &:hover .headline {
+            font-size: 2.25rem;
+          }
+
+          &:hover .description {
+            display: block;
+          }
+
+          &:hover {
+            background: rgba(49, 49, 49, 0.7);
+          }
+        }
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          z-index: 1;
+        }
+
+        &:nth-child(1):before {
+          background: url($chickenBurger) no-repeat center center/cover;
+        }
+
+        &:nth-child(2):before {
+          background: url($mushroomBurger) no-repeat center center/cover;
+        }
+
+        &:nth-child(3):before {
+          background: url($poorManBigMac) no-repeat center center/cover;
+        }
+      }
+    }
+  }
+}
+
+// Media Queries
+@media only screen and (max-width: 650px) {
+  .home {
+    &__intro {
+      @include gridCol(1);
+
+      .display {
+        display: none;
+      }
+
+      .specials {
+        &:before {
+          top: -10px;
+          left: -10px;
+          font-size: 1.65rem;
+        }
+      }
+    }
+  }
+}

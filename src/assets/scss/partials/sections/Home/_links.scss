@@ -1,0 +1,36 @@
+.home {
+  &__links {
+    margin: 5vh 0;
+    height: 20vh;
+    list-style-type: none;
+    display: flex;
+
+    > li {
+      flex: 1;
+      @include flexCenter;
+      background: rgba(53, 53, 53, 0.75);
+      color: white;
+      font-size: 2rem;
+      border: 1px solid white;
+
+      &:hover {
+        cursor: pointer;
+        background: rgba(53, 53, 53, 0.9);
+      }
+    }
+  }
+}
+
+// Media Queries
+@media only screen and (max-width: 650px) {
+  .home {
+    &__links {
+      @include gridCol(2);
+      height: 40vh;
+
+      > li {
+        font-size: 2rem;
+      }
+    }
+  }
+}

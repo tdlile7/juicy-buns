@@ -1,0 +1,248 @@
+.order {
+  @include gridCol(2);
+  height: 80vh;
+
+  &__section {
+    @include flexCenter();
+    height: 100%;
+    width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+
+    .order-menu {
+      @include gridCol(1);
+      align-items: center;
+      max-height: 70vh;
+      width: 70%;
+      overflow-y: auto;
+      color: white;
+      background: grey;
+
+      .order-instructions {
+        position: relative;
+        height: 7.5vh;
+        width: 100%;
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: 20px;
+        padding: 10px 0;
+        background: rgb(37, 37, 37);
+      }
+
+      .menu-category {
+        flex: 1;
+        margin: 1rem 0;
+        width: 100%;
+
+        .category-title {
+          position: relative;
+          font-size: 2rem;
+          padding-left: 0.75rem;
+
+          &:before {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            height: 2px;
+            width: 60%;
+            background: rgba(12, 12, 12, 0.4);
+          }
+        }
+
+        .category-items {
+          position: relative;
+          width: 100%;
+          list-style-type: none;
+
+          .category-item {
+            position: relative;
+            width: 100%;
+            font-size: 1.35rem;
+            padding: 0.75rem;
+            padding-right: 0;
+
+            &:hover {
+              cursor: pointer;
+              background: rgb(37, 37, 37);
+            }
+          }
+        }
+      }
+    }
+
+    .cart {
+      @include flex(column);
+      position: relative;
+      height: 90%;
+      width: 80%;
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid rgb(53, 52, 52);
+      border-radius: 10px;
+      overflow: hidden;
+
+      &__title {
+        @include flexCenter(column);
+        position: absolute;
+        height: 15%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: rgb(156, 155, 155);
+      }
+
+      &__instructions {
+        position: relative;
+        top: 15%;
+        height: 5%;
+        width: 100%;
+        padding: 5px;
+        text-align: center;
+        font-size: 1rem;
+      }
+
+      &__items {
+        position: relative;
+        top: 20%;
+        max-height: 55%;
+        overflow-y: auto;
+
+        .cart-item {
+          @include flexBetween(false);
+          padding: 0.5rem;
+          font-size: 1.5rem;
+          text-align: center;
+
+          &__name,
+          &__price {
+            display: inline-block;
+          }
+
+          &:hover {
+            cursor: pointer;
+            background: rgb(238, 122, 122);
+          }
+        }
+      }
+
+      &__price {
+        @include flexBetween(false);
+        position: absolute;
+        height: 20%;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        background: rgb(156, 155, 155);
+
+        .price-display {
+          position: relative;
+          left: 1rem;
+          font-size: 1.15rem;
+
+          .taxes,
+          .total-price {
+            padding: 0.5rem 0;
+          }
+
+          .total-price {
+            font-size: 1.35rem;
+          }
+        }
+
+        .place-order-button {
+          position: relative;
+          padding: 1rem;
+          right: 1rem;
+          background: rgb(77, 77, 77);
+          color: white;
+          border-radius: 5px;
+        }
+
+        .place-order-button.active {
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        .place-order-button.disabled {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
+
+// Media Queries
+@media only screen and (max-width: 650px) {
+  .order {
+    @include gridCol(1);
+    height: 160vh;
+
+    &__section {
+      max-height: 80vh;
+      overflow: hidden;
+
+      .order-menu,
+      .cart {
+        height: 70vh;
+      }
+
+      .order-menu {
+        width: 85%;
+        border-radius: 5px;
+
+        .order-instructions {
+          font-size: 1.4rem;
+        }
+
+        .menu-category {
+          .category-title {
+            font-size: 2.5rem;
+            padding-left: 1.25rem;
+          }
+
+          .category-items {
+            .category-item {
+              font-size: 1.4rem;
+              padding: 1.25rem;
+
+              &:nth-child(1) {
+                padding-top: 2rem;
+              }
+            }
+          }
+        }
+      }
+
+      .cart {
+        &__title {
+          font-size: 2.75rem;
+        }
+
+        &__instructions {
+          font-size: 1.25rem;
+        }
+
+        &__items {
+          .cart-item {
+            font-size: 1.3rem;
+            padding: 0.75rem;
+          }
+        }
+
+        &__price {
+          .price-display {
+            font-size: 1.3rem;
+
+            .total-price {
+              font-size: 1.55rem;
+            }
+          }
+
+          .place-order-button {
+            font-size: 1.65rem;
+          }
+        }
+      }
+    }
+  }
+}

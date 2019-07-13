@@ -1,0 +1,85 @@
+//Mixins
+@mixin gridCol($colNum) {
+  display: grid;
+  grid-template-columns: repeat($colNum, 1fr);
+}
+
+@mixin flex($type: row) {
+  display: flex;
+  flex-direction: $type;
+}
+
+@mixin flexCenter($type: row) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $type;
+}
+
+@mixin flexBetween($col) {
+  display: flex;
+
+  @if $col {
+    flex-direction: column;
+    align-items: space-between;
+    justify-content: center;
+  } @else {
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+//Global styles
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:not(i) {
+  font-family: "Libre Baskerville", serif;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background: url("../images/table.jpg") no-repeat center center/cover;
+}
+
+//Transition Group Animations
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 100ms;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 100ms;
+}
+
+// Partial Imports
+@import "./partials/default";
+@import "./partials/layout/modal";
+@import "./partials/layout/loader";
+@import "./partials/layout/navbar";
+@import "./partials/sections/Menu/menu";
+@import "./partials/pages/home";
+@import "./partials/pages/order";
+@import "./partials/layout/footer";
+@import "./partials/pages/not-found";
+
+// Media Queries
+@media only screen and (max-width: 1100px) {
+  html {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,32 @@
+.loading-container {
+  @include flexCenter();
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  z-index: 999;
+
+  .loader {
+    @include flexCenter();
+    height: 100%;
+    width: 100%;
+
+    .fa-hamburger {
+      font-size: 6.5rem;
+      color: white;
+    }
+  }
+}
+
+// Media Queries
+@media only screen and (max-width: 650px) {
+  .loading-container {
+    .loader {
+      .fa-hamburger {
+        font-size: 10rem;
+      }
+    }
+  }
+}
